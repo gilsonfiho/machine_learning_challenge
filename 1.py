@@ -18,6 +18,7 @@ contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPL
 # Desenha contornos
 result = img.copy()
 cv2.drawContours(result, contours, -1, (0, 255, 0), 2)
+cv2.putText(result, f"count: {len(contours)}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
 # Resultado
 print(f"Nº zero de objetos encontrados: {len(contours)}")
