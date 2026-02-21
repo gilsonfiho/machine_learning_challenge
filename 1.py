@@ -30,7 +30,7 @@ print(f"Nº de objetos encontrados: {len(contours)}")
 cv.imshow("Original", img)
 cv.imshow("Binarizada", binary)
 cv.imshow("Contornos", result)
-cv.imwrite("outputs\project_1\resultado_anotado.png", result)
+cv.imwrite("outputs/project_1/graos_anotado.png", result)
 
 cv.waitKey(0)
 cv.destroyAllWindows()
