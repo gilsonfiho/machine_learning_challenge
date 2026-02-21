@@ -1,33 +1,36 @@
-import cv2
+import cv2 as cv
 
-# Carrega imagem
-img = cv2.imread("data\graos.png")
+#1 Carrega imagem
+img = cv.imread("data\graos.png")
 
-# Escala de cinza
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#2 Escala de cinza
+gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
-# Filtro Gaussiano
-blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+#3 Filtro Gaussiano
+blurred = cv.GaussianBlur(gray, (5, 5), 0)
 
-# Binarização
-_, binary = cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY)
+#4 Binarização
+_, binary = cv.threshold(blurred, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
 
-# Encontra contornos
-contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+#5 Encontra contornos
+contours, _ = cv.findContours(binary, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
-# Desenha contornos
+#6 Suaviaza contornos
+contours = [cnt for cnt in contours if cv.contourArea(cnt) > 100]
+
+#7 Desenha contornos
 result = img.copy()
-cv2.drawContours(result, contours, -1, (0, 255, 0), 2)
-cv2.putText(result, f"count: {len(contours)}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+cv.drawContours(result, contours, -1, (0, 255, 0), 2)
+cv.putText(result, f"count: {len(contours)}", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-# Resultado
-print(f"Nº zero de objetos encontrados: {len(contours)}")
+#8 Resultado
+print(f"Nº de objetos encontrados: {len(contours)}")
 
-# Mostra
-cv2.imshow("Original", img)
-cv2.imshow("Binarizada", binary)
-cv2.imshow("Contornos", result)
-cv2.imwrite("resultado_anotado.png", result)
+# Exibição e salvamento
+cv.imshow("Original", img)
+cv.imshow("Binarizada", binary)
+cv.imshow("Contornos", result)
+cv.imwrite("outputs\project_1\resultado_anotado.png", result)
 
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv.waitKey(0)
+cv.destroyAllWindows()
