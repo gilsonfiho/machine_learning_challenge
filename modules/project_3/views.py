@@ -1,3 +1,6 @@
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) + '/../..')
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, classification_report
