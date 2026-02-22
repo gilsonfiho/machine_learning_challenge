@@ -45,5 +45,6 @@ cv.putText(
 # 5. Salva imagem anotada
 cv.imshow("Resultado YOLO", result_img)
 cv.imwrite("outputs/project_2/person_anotado.png", result_img)
+
 cv.waitKey(0)
 cv.destroyAllWindows()
