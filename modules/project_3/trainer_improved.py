@@ -40,13 +40,19 @@ class Trainer:
         # Calcular pesos
         class_weights = Config.calculate_class_weights(y_train)
         
-        # Fine-tune
+        early_stop = keras.callbacks.EarlyStopping(
+            monitor='val_loss',
+            patience=10,
+            restore_best_weights=True
+        )
+
         history = model.fit(
             datagen.flow(X_train, y_train, batch_size=Config.BATCH_SIZE),
             validation_data=(X_val, y_val),
-            epochs=Config.EPOCHS // 2,
+            epochs=Config.EPOCHS,
             steps_per_epoch=len(X_train) // Config.BATCH_SIZE,
             class_weight=class_weights,
+            callbacks=[early_stop],
             verbose=1
         )
         
