@@ -77,7 +77,6 @@ Desbalanceamento: razão de 6.6:1 entre classe majoritária e minoritária
 - Fine-tuning em duas etapas: base congelada (LR 1e-5) → descongelamento das últimas 50 camadas com scheduler
 - ReduceLROnPlateau (factor=0.5, patience=3, min_lr=1e-6)
 - Early Stopping (patience=5, monitor=val_loss, min_delta=0.0005)
-- Batch size=32, Max epochs=20, Image size=224×224
 
 **Resultados:**
 
@@ -215,4 +214,4 @@ Principais bibliotecas Usadas: `tensorflow`, `keras-tuner`, `opencv-python`, `ul
 
 ---
 
-**Data:** Fevereiro 2026
+**Data:** 26 de Fevereiro 2026
