@@ -24,7 +24,7 @@ SEED = 42
 BATCH_SIZE = 32
 IMG_SIZE = 224
 NUM_CLASSES = 4
-CLASS_NAMES = ["Outros", "Classe 1", "Classe 2", "Classe 3"]
+CLASS_NAMES = ["Outros", "Classe 3", "Classe 4", "Classe 5"]
 
 # ================== AUGMENTATION ==================
 AUGMENT_FACTOR = 10
@@ -36,9 +36,9 @@ EARLY_STOPPING_PATIENCE = 5
 EARLY_STOPPING_MIN_DELTA = 0.0005
 
 # Learning Rates
-LR_TL = 1e-5
+LR_TL = 1e-4
 LR_FT = 1e-5
-WEIGHT_DECAY = 1e-5
+WEIGHT_DECAY = 1e-3
 
 # LR Scheduler
 LR_SCHEDULER_FACTOR = 0.5
