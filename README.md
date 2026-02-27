@@ -53,7 +53,7 @@ Classificador de modelos de carros BMW (BMW-3, BMW-4, BMW-5 vs Outros) usando Tr
 ### Dataset
 
 ```
-512 imagens totais (bmw10_release)
+300 imagens carregadas (bmw10_release)
 ├── Classe 0 (Outros): ~178 imagens (34.8%)
 ├── Classe 1 (BMW-3):  ~48 imagens (9.4%)
 ├── Classe 2 (BMW-4):  ~47 imagens (9.2%)
@@ -61,10 +61,6 @@ Classificador de modelos de carros BMW (BMW-3, BMW-4, BMW-5 vs Outros) usando Tr
 
 Desbalanceamento: razão de 6.6:1 entre classe majoritária e minoritária
 ```
-
-![Distribuição de Classes](outputs/project_3/figures/class_distribution.png)
-
----
 
 ## Modelos Treinados e Resultados
 
@@ -204,7 +200,7 @@ python 1.py
 python 2.py
 
 # Questão 3 — Classificação BMW (treino completo)
-python main.py
+python 3.py
 
 ```
 
