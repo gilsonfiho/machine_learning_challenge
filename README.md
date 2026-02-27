@@ -178,7 +178,7 @@ Augmentação no treino: AUGMENT_FACTOR=10 para classes 1,2,3
 
 **Técnicas Decisivas para Superar 90% de Acurácia**
 
-**Tratamento do desbalanceamento:** AUGMENT_FACTOR = 10 aumenta classes minoritárias (Classe 1, 2, 3) em 10 variações cada, transformando 178 vs 48 vs 47 vs 27 em ~178 vs 480 vs 470 vs 270 amostras efetivas no treino.
+**Tratamento do desbalanceamento:** AUGMENT_FACTOR = 10 aumenta classes minoritárias (Classe 1, 2, 3) em 10 variações cada.
 
 **Transfer Learning em duas etapas:** na primeira etapa, apenas as camadas do topo são treinadas (LR=1e-5) para estabilizar a tarefa específica; na segunda, as últimas 50-60 camadas da base são descongeladas com LR mantida em 1e-5, ajustada pelo scheduler, para adaptar as features extraídas do ImageNet ao domínio de carros BMW.
 
