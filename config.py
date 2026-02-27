@@ -14,7 +14,7 @@ DATA_DIR = os.path.join(PROJECT_ROOT, 'data',  'bmw10_release')
 IMG_DIR = os.path.join(DATA_DIR, 'bmw10_ims')
 ANNOS_FILE = 'bmw10_annos.mat'
 
-OUTPUTS_DIR = os.path.join(PROJECT_ROOT, 'outputs', 'project_3')
+OUTPUTS_DIR = os.path.join(PROJECT_ROOT, 'outputs', 'project_3_1')
 MODELS_DIR = os.path.join(OUTPUTS_DIR, 'models')
 FIGURES_DIR = os.path.join(OUTPUTS_DIR, 'figures')
 REPORTS_DIR = os.path.join(OUTPUTS_DIR, 'reports')
