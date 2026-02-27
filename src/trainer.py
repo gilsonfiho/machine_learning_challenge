@@ -1,8 +1,3 @@
-"""
-trainer.py - Loop de treinamento principal com Early Stopping e Learning Rate Scheduling
-Localizado em: src/trainer.py
-"""
-
 import torch
 from tqdm import tqdm
 from src.training.scheduler import EarlyStopping
@@ -13,26 +8,7 @@ import matplotlib.pyplot as plt
 def train_model(model, model_name, trainloader, valloader, criterion, optimizer,
                 scheduler, device, num_epochs, early_stopping_patience, 
                 fine_tuning, save_dir):
-    """
-    Treina o modelo com Early Stopping e LR Scheduler
     
-    Args:
-        model: Modelo a treinar
-        model_name: Nome do modelo (para logging)
-        trainloader: DataLoader de treinamento
-        valloader: DataLoader de validação
-        criterion: Função de perda
-        optimizer: Otimizador
-        scheduler: Scheduler de learning rate
-        device: Dispositivo (CPU/GPU)
-        num_epochs: Número de épocas
-        early_stopping_patience: Paciência para early stopping
-        fine_tuning: Se está em fine-tuning
-        save_dir: Diretório para salvar modelos
-    
-    Returns:
-        dict: Histórico de treinamento
-    """
     train_losses = []
     val_losses = []
     train_accs = []
@@ -117,7 +93,7 @@ def train_model(model, model_name, trainloader, valloader, criterion, optimizer,
             torch.save(best_model_state, os.path.join(save_dir, f'{model_name}_best.pth'))
             print(f"✓ Melhor modelo salvo!")
         
-        early_stopping(val_loss)
+        early_stopping(val_loss, epoch)
         if early_stopping.early_stop:
             print(f"Early stopping acionado após {epoch+1} épocas")
             break
