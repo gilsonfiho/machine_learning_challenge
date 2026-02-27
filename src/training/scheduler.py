@@ -1,12 +1,7 @@
-"""
-src/training/scheduler.py - Learning Rate Scheduler
-"""
-
 import torch.optim as optim
 
 
 class EarlyStopping:
-    """Early stopping para prevenir overfitting"""
 
     def __init__(self, patience=5, min_delta=0.001, verbose=True):
         self.patience = patience
